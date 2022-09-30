@@ -1,0 +1,8 @@
+step-1
+npm install @angular/cli -g
+step-2
+ng new <project-name>
+step-3
+ng serve
+
+node -v
