@@ -1,0 +1,16 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "customerCode": "101",
+      "customerName": "Vikash Verma",
+      "customerAmount": 100
+    },
+    {
+      "id": 2,
+      "customerCode": "102",
+      "customerName": "vikash Verma",
+      "customerAmount": "104"
+    }
+  ]
+}

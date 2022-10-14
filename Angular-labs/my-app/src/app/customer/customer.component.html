@@ -5,11 +5,7 @@
 <!-- <br/><br/> -->
 
 
-
-
-
-<div class="container">
-  <div class="card" style="width: 44rem;">
+  <div class="card" style="width: 70rem;">
     <div class="card-body">
       <h5 class="card-title">Add Customer</h5>
       <div class="mb-3">
@@ -25,27 +21,29 @@
         <input type="text" [(ngModel)]="CustomerModel.customerAmount" class="form-control">
       </div>
 
-      <input type="button" class="btn btn-primary" value="Add Customer" (click)="ClickMe()" />
+      <input type="button" class="btn btn-primary" value="Add Customer" (click)="AddCustomer()" />
     </div>
     <table class="table table-striped">
-      <tr>
-        <td>Customer Code</td>
-        <td>Customer Name</td>
-        <td>Customer Amount</td>
-        <td>Actions</td>
-      </tr>
+
+      <thead>
+        <tr>
+          <th scope="col">Customer Code</th>
+          <th scope="col">Customer Name</th>
+          <th scope="col">Customer Amount</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
       <tr *ngFor="let cust of CustomerModels">
         <td>{{cust.customerCode}}</td>
         <td>{{cust.customerName}}</td>
         <td>{{cust.customerAmount}}</td>
         <td><input type="button" value="Edit" class="btn btn-success"
-            style="background-color: var(--bs-btn-active-bg);">
-          <input type="button" value="Delete" class="btn btn-danger" style="background-color: var(--bs-btn-active-bg);">
+            style="background-color: var(--bs-btn-active-bg);" (click)="EditCustomer(cust)">
+          <input type="button" value="Delete" class="btn btn-danger" style="background-color: var(--bs-btn-active-bg);" (click)="DeleteCustomer(cust.id)">
         </td>
       </tr>
     </table>
   </div>
-</div>
 
 <!-- <input [(ngModel)]="CustomerModel.customerCode" type="text"><br/><br/>
 <input [(ngModel)]="CustomerModel.customerName" type="text"><br/><br/>
