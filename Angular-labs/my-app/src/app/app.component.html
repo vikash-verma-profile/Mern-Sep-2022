@@ -1,27 +1,51 @@
-Vikash Verma
+<!-- Vikash Verma
 
 {{title}}
-{{"asdasd"}}
-<br/><br/>
-customerCode<input [(ngModel)]="CustomerModel.customerCode" type="text"><br/><br/>
-customerName<input [(ngModel)]="CustomerModel.customerName" type="text"><br/><br/>
-customerAmount<input [(ngModel)]="CustomerModel.customerAmount" type="text"><br/><br/>
-<input type="button" value="Click me" (click)="ClickMe()"/>
-<br/><br/><br/>
-<table>
-  <tr>
-    <td>customerCode</td>
-    <td>customerName</td>
-    <td>customerAmount</td>
-  </tr>
-  <tr *ngFor="let cust of CustomerModels">
-    <td>{{cust.customerCode}}</td>
-    <td>{{cust.customerName}}</td>
-    <td>{{cust.customerAmount}}</td>
+{{"asdasd"}} -->
+<!-- <br/><br/> -->
+<div class="container">
+<div class="card" style="width: 44rem;">
+  <div class="card-body">
+    <h5 class="card-title">Add Customer</h5>
+    <div class="mb-3">
+      <label class="form-label">Customer Code</label>
+      <input type="text"  [(ngModel)]="CustomerModel.customerCode" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Customer Name</label>
+      <input type="text" [(ngModel)]="CustomerModel.customerName" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Customer Amount</label>
+      <input type="text" [(ngModel)]="CustomerModel.customerAmount" class="form-control" >
+    </div>
+
+    <input type="button" class="btn btn-primary" value="Add Customer" (click)="ClickMe()"/> 
+  </div>
+  <table class="table table-striped">
+    <tr>
+      <td>Customer Code</td>
+      <td>Customer Name</td>
+      <td>Customer Amount</td>
+      <td>Actions</td>
     </tr>
-</table>
-<br/><br/><br/>
-<img [src]="imgUrl" />
+    <tr *ngFor="let cust of CustomerModels">
+      <td>{{cust.customerCode}}</td>
+      <td>{{cust.customerName}}</td>
+      <td>{{cust.customerAmount}}</td>
+      <td><input type="button" value="Edit" class="btn btn-success" style="background-color: var(--bs-btn-active-bg);">
+        <input type="button" value="Delete" class="btn btn-danger" style="background-color: var(--bs-btn-active-bg);"></td>
+      </tr>
+  </table>
+</div>
+</div>
+
+<!-- <input [(ngModel)]="CustomerModel.customerCode" type="text"><br/><br/>
+<input [(ngModel)]="CustomerModel.customerName" type="text"><br/><br/>
+<input [(ngModel)]="CustomerModel.customerAmount" type="text"><br/><br/>
+<input type="button" value="Click me" (click)="ClickMe()"/> -->
+
+<!-- <img [src]="imgUrl" /> -->
 
 <!--
 ()==>event binding
