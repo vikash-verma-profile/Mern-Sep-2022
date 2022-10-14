@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { Customer } from './app.model';
+import { Customer } from './customer.model';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './customer.component.html',
 })
-export class AppComponent {
+export class CustomerComponent {
   title = 'my-app';
 
   imgUrl="././assets/sample.jpg";
