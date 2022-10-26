@@ -55,5 +55,9 @@ export class CustomerComponent implements OnInit {
     this.http.delete("http://localhost:3000/customers/"+input).subscribe(res=>this.SuccesPost(res),res=>console.log(res));
 
   }
+
+  hasError(typeofValidator:string,controlName:string):Boolean{
+    return this.CustomerModel.formCustomerGroup.controls[controlName].hasError(typeofValidator);
+  }
  
 }
