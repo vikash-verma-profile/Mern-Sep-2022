@@ -7,21 +7,23 @@
 
   <div class="card" style="width: 70rem;">
     <div class="card-body">
+      <form [formGroup]="CustomerModel.formCustomerGroup">
       <h5 class="card-title">Add Customer</h5>
       <div class="mb-3">
         <label class="form-label">Customer Code</label>
-        <input type="text" [(ngModel)]="CustomerModel.customerCode" class="form-control" />
+        <input type="text" [(ngModel)]="CustomerModel.customerCode" formControlName="CustomerCodeControl" class="form-control" />
       </div>
       <div class="mb-3">
         <label class="form-label">Customer Name</label>
-        <input type="text" [(ngModel)]="CustomerModel.customerName" class="form-control" />
+        <input type="text" [(ngModel)]="CustomerModel.customerName" formControlName="CustomerNameControl" class="form-control" />
       </div>
       <div class="mb-3">
         <label class="form-label">Customer Amount</label>
-        <input type="text" [(ngModel)]="CustomerModel.customerAmount" class="form-control">
+        <input type="text" [(ngModel)]="CustomerModel.customerAmount" [ngModelOptions]="{standalone: true}" class="form-control">
       </div>
 
-      <input type="button" class="btn btn-primary" value="Add Customer" (click)="AddCustomer()" />
+      <input type="button" [disabled]="!(CustomerModel.formCustomerGroup.valid)" class="btn btn-primary" value="Add Customer" (click)="AddCustomer()" />
+      </form>
     </div>
     <table class="table table-striped">
 
