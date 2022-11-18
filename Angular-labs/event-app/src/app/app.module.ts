@@ -10,6 +10,7 @@ import { EventService } from './services/event.service';
 import { MembersComponent } from './members/members.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [EventService],
+  providers: [EventService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
