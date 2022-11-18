@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EventsComponent } from './events/events.component';
+import { LoginComponent } from './login/login.component';
+import { MembersComponent } from './members/members.component';
 
 const routes: Routes = [
 
@@ -13,6 +15,14 @@ const routes: Routes = [
   {
     path:'events',
     component:EventsComponent
+  },
+  {
+    path:'member',
+    component:MembersComponent
+  },
+  {
+    path:'login',
+    component:LoginComponent
   }
 ];
 
