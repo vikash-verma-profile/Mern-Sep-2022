@@ -13,6 +13,22 @@ mongoose.connect(db, function (err) {
   }
 });
 
+function verifyToken(req,res,next){
+  if(!req.headers.authorization){
+    return res.status(401).send('Unauthorized request');
+  }
+  let token=req.headers.authorization.split(' ')[1];
+  if(token==='null'){
+    return res.status(401).send('Unauthorized request');
+  }
+  let payload=jwt.verify(token,'secretKey')
+  if(!payload){
+    return res.status(401).send('Unauthorized request');
+  }
+  req.userId=payload.subject;
+  next();
+}
+
 router.post("/register", (req, res) => {
   let userData = req.body;
   console.log(userData);
@@ -80,4 +96,30 @@ router.get("/events", (req, res) => {
   res.json(events);
 });
 
+router.get("/member",verifyToken, (req, res) => {
+  let events = [
+    {
+      _id: "1",
+      name: "Member Event 1",
+      description:
+        "Member Event 1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
+      date: "2022-11-4T18:25:43",
+    },
+    {
+      _id: "2",
+      name: "Member Event 2",
+      description:
+        "Member Event 2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
+      date: "2022-11-4T18:25:43",
+    },
+    {
+      _id: "3",
+      name: "Member Event 3",
+      description:
+        "Member Event 3 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
+      date: "2022-11-4T18:25:43",
+    },
+  ];
+  res.json(events);
+});
 module.exports = router;

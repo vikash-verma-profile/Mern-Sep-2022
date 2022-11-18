@@ -1,1 +1,12 @@
-<p>members works!</p>
+<div class="row mt-5">
+    <div class="col-md-4 mb-3"  *ngFor="let cust of events">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{ cust.name }}</h5>
+          <p class="card-text">{{ cust.description }}</p>
+          <a href="#" class="btn btn-primary">Buy Ticket</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

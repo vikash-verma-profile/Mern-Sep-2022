@@ -23,4 +23,8 @@ export class AuthService {
     localStorage.removeItem('token');
     this._router.navigate(['']);
   }
+
+  getToken(){
+    return localStorage.getItem('token');
+  }
 }
