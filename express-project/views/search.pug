@@ -1,0 +1,6 @@
+extends default 
+block content 
+    header 
+        a.logo(href='/') News 
+        form(action='/search' method="GET")
+            input.search-input(autofocus='' value=`${searchQuery || ''} ` placeholder="Enter a serach term" type="search" name='q')

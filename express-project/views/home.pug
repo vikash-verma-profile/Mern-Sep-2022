@@ -1,0 +1,7 @@
+extends default 
+
+block content 
+    .home-search 
+        img(src="images/hn.jpeg" width="180" height="180")
+        form(action='/search' method='Get')
+            input.home-input(placeholder="Search News" type="search" name="q")
