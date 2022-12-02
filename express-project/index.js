@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const axios = require("axios");
+const { response } = require("express");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "pug");
@@ -18,18 +19,23 @@ app.get("/search", async (req, res) => {
   }
 
   const results = await searchNews(searchQuery);
-  res.render("search", {
-    title: `Search results for ${searchQuery}`,
-    searchResults: results,
-    searchQuery,
-  });
+  console.log(searchQuery);
+  console.log(results);
+//   res.render("search", {
+//     title: `Search results for ${searchQuery}`,
+//     searchResults: results,
+//     searchQuery,
+//   });
+res.status(200).json(results);
 });
 
 async function searchNews(query) {
-  const response = await axios.get(
-    `https://hn.algolia.com/api/v1/search?query=${query}&tags=story&hitsPerPage=90`
-  );
-  return response.data;
+//   const response = await axios.get(
+//     'https://hn.algolia.com/api/v1/search?query='+query.trim()+"&tags=story&hitsPerPage=90"
+//   );
+ await axios.get('https://jsonplaceholder.typicode.com/todos').then(response=>{console.log(response.data);});
+//console.log(response.data);
+//return response.data;
 }
 app.get("/home", (req, res) => {
   res.send("Helllo, This is home router");

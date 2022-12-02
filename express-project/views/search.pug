@@ -1,6 +1,29 @@
-extends default 
-block content 
-    header 
-        a.logo(href='/') News 
-        form(action='/search' method="GET")
-            input.search-input(autofocus='' value=`${searchQuery || ''} ` placeholder="Enter a serach term" type="search" name='q')
+extends default
+block content
+  header
+    a.logo(href='/') News
+    form(action='/search' method='GET')
+      input.search-input(autofocus='' value=`${searchQuery || ''}​​​​​​​​` placeholder='Enter a search term' type='search' name='q')
+  .container
+    if !searchResults || !searchResults.nbHits
+      .result-count
+        p No results found for your query:
+        |
+        strong #{searchQuery}​​​​​​​​
+    else
+      ul.search-results
+        each story in searchResults.hits
+          li.news-article
+            a.title-link(target='_blank' rel='noreferrer noopener' )
+            //-   h3.title #{​​​​​​​​story.title}​​​​​​​​
+            //- .metadata #{​​​​​​​​story.points}​​​​​​​​ points by
+            //-   |
+            //-   |
+            //-   span.author #{​​​​​​​​story.author}​​​​​​​​
+            //-   |
+            //-   | on
+            //-   |
+            //-   time.created-date #{​​​​​​​​story.created_at}​​​​​​​​
+            //-   |
+            //-   |
+
