@@ -1,0 +1,8 @@
+{
+    "realm":"",
+    "bearer-only":true,
+    "auth-server-url":"",
+    "ssl-required":"",
+    "resourcse":"api-gateway",
+    "confidential-port":0
+}
