@@ -1,0 +1,19 @@
+git init==>this will intialize the git in your local repostitory
+git add .==>add all the files that you want to push to server
+git commit -m "any comment"
+git branch -M main
+git remote add origin https://github.com/vikash-verma-profile/SampleTestGit.git
+git push -u origin main
+
+for configuration
+git config --global user.name "vikash-verma-profile"
+git config --global user.email "your email"
+
+git clone <url>
+
+git pull
+
+
+
+
+
